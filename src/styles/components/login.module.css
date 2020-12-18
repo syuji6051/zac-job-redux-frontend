@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: darkgray;
+}
+
+.signInForm {
+  width: 60%;
+  height: 50%;
+  border-radius: 0.5rem;
+  background-color:white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 40rem;
+}
+
+.signLogo {
+  margin: 2rem;
+  margin-top: 3.5rem;
+}
+
+.signInInput {
+  margin: 0.5rem 0 0.5rem 0;
+  width: 80%;
+}
+
+.signInButtonMargin {
+  margin-top: 1.5rem;
+}
