@@ -1,0 +1,22 @@
+.form {
+  padding: 1rem;
+  border: solid 1px darkgray;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+
+.inputForm {
+  display: flex;
+  flex-direction: row;
+}
+
+.textField {
+  display: flex;
+  flex-direction: column;
+  padding-right: 1rem;
+  width: 17rem;
+}
+
+.registerButton {
+  max-height: 42.69px;
+}

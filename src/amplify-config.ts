@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { Auth } from 'aws-amplify';
+// import { Auth } from 'aws-amplify';
 
 export default {
   // aws_appsync_graphqlEndpoint: process.env.REACT_APP_GRAPHQL_ENDPOINT_URL,

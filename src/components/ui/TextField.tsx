@@ -5,9 +5,10 @@ import { Input, InputOnChangeData, InputProps, Label } from 'semantic-ui-react';
 
 interface Props extends InputProps {
   name: string;
+  pointing?: boolean | 'above' | 'below' | 'left' | 'right';
 }
 
-const TextField: React.FC<Props> = ({ name, ...props }: Props) => {
+const TextField: React.FC<Props> = ({ name, pointing, ...props }: Props) => {
   const [, meta, helper] = useField(name);
   return (
     <>
@@ -19,7 +20,7 @@ const TextField: React.FC<Props> = ({ name, ...props }: Props) => {
         error={meta.touched && meta.error !== undefined}
       />
       {meta.touched && meta.error !== undefined && (
-        <Label basic color="red" pointing>
+        <Label basic color="red" pointing={pointing}>
           {meta.error}
         </Label>
       )}
