@@ -17,6 +17,10 @@ interface Scheme {
   password: string;
 }
 
+interface SignError extends Error {
+  code: string;
+}
+
 const scheme = Yup.object().shape({
   mailAddress: Yup.string()
     .required('メールアドレスを入力してください')
@@ -52,8 +56,11 @@ const SignIn: React.FC = () => {
           throw new Error('Not change auth status');
       }
     } catch (err) {
-      const message = errorMessageList[err.code];
-      setErrorMessage(message || 'ログインに失敗しました。管理者にお問い合わせください');
+      if (err instanceof Error) {
+        const error = err as SignError;
+        const message = errorMessageList[error.code];
+        setErrorMessage(message || 'ログインに失敗しました。管理者にお問い合わせください');
+      }
     }
   };
 

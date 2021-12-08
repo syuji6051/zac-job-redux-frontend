@@ -1,0 +1,26 @@
+.list {
+  padding: 1rem;
+}
+
+.workCodeText {
+  padding-right: 1rem;
+}
+
+.yearMonth {
+  display: flex;
+  padding: 1rem 0;
+}
+
+.yearMonthLabel {
+  padding: 0 1rem;
+  margin-bottom: 0;
+  align-self: center;
+}
+
+.listContent {
+  display: flex;
+}
+
+.deleteButton {
+  margin-left: auto !important;
+}

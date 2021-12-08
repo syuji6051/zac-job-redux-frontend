@@ -1,0 +1,12 @@
+.container {
+  padding: 1rem;
+}
+
+.registerLoginPassword {
+  padding-bottom: 1rem;
+}
+
+.registerWorkCode {
+  max-width: 25rem;
+  padding-bottom: 1rem;
+}

@@ -1,0 +1,29 @@
+.form {
+  padding: 1rem;
+  border: solid 1px darkgray;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+
+.formRow {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+.label {
+  font-size: large;
+}
+
+.formRow :nth-child(1) {
+  min-width: 8rem;
+}
+
+.formRow > :nth-child(3) {
+  margin-left: 1rem;
+  min-width: 3rem;
+}
+
+.formRow > :nth-child(5) {
+  margin-left: 1rem;
+}
