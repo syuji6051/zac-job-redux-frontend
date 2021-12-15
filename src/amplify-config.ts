@@ -17,6 +17,16 @@ export default {
           };
         },
       },
+      {
+        name: 'work',
+        endpoint: process.env.REACT_APP_API_WORK_ENDPOINT_BASE_URL,
+        custom_header: async () => {
+          // Alternatively, with Cognito User Pools use this:
+          return {
+            Authorization: `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`,
+          };
+        },
+      },
     ],
   },
   Auth: {

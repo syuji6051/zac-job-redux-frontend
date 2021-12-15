@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+}
+
+.logo {
+  width: 11rem;
+  padding: 2rem;
+}
+
+.message {
+  font-size: large;
+}
+
+.errorMessage {
+  padding: 1rem
+}
+
+.spacer {
+  padding-bottom: 2rem;
+}

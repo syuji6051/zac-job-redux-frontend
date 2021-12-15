@@ -31,7 +31,7 @@ const Routers: React.FC = () => {
     <>
       {authState === AUTH_STATUS.SIGN_IN ? (
         <div className={classes.container}>
-          <Header />
+          {/* <Header /> */}
           <div className={classes.mainContent}>
             <Switch>
               <Route exact path="/" component={Settings} />

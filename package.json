@@ -9,7 +9,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "aws-amplify": "^3.3.12",
+    "aws-amplify": "^4.3.10",
     "axios": "^0.24.0",
     "connected-react-router": "^6.8.0",
     "dayjs": "^1.10.7",

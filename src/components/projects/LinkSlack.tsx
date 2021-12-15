@@ -9,7 +9,7 @@ const LinkSlack: React.FC = () => {
     const query = {
       client_id: REACT_APP_SLACK_CLIENT_ID,
       scope: 'identify',
-      redirect_uri: REACT_APP_SLACK_REDIRECT_URL,
+      redirect_uri: `${REACT_APP_SLACK_REDIRECT_URL}/auth/slack`,
     };
     window.open(`https://slack.com/oauth/authorize?${queryString.stringify(query)}`, '_blank');
   };
