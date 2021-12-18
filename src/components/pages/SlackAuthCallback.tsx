@@ -54,7 +54,11 @@ const slackAuthCallback: React.FC = () => {
       )}
       {status === 'SUCCESS' && (
         <>
-          <img className={classes.logo} src={`${process.env.PUBLIC_URL}/correct.svg`} alt="error" />
+          <img
+            className={classes.logo}
+            src={`${process.env.PUBLIC_URL}/correct.png`}
+            alt="success"
+          />
           <span className={classes.message}>Slackユーザ情報取得できました</span>
           <span>このウィンドウを閉じてください</span>
         </>
