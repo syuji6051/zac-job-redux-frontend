@@ -4,6 +4,7 @@
 
 .registerLoginPassword {
   padding-bottom: 1rem;
+  display: flex;
 }
 
 .registerWorkCode {

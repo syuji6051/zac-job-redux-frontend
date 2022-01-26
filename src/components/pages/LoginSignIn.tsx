@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import Form from '../ui/Form';
 import TextField from '../ui/TextField';
-import { signIn } from '../../helper/Auth';
+import * as helper from '../../helper/Auth';
 import { AuthActions, AUTH_STATUS } from '../../modules/Auth';
 import errorMessageList from '../../context/errors/login';
 import classes from '../../styles/components/login.module.css';
@@ -28,7 +28,7 @@ const scheme = Yup.object().shape({
   password: Yup.string().required('パスワードを入力してください'),
 });
 
-const SignIn: React.FC = () => {
+const signIn: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useDispatch();
   const history = useHistory();
@@ -42,7 +42,7 @@ const SignIn: React.FC = () => {
 
   const onPressSignIn = async ({ mailAddress, password }: Scheme) => {
     try {
-      const { user, status } = await signIn(mailAddress, password);
+      const { user, status } = await helper.signIn(mailAddress, password);
       switch (status) {
         case AUTH_STATUS.SIGN_IN:
           dispatch(AuthActions.signedIn());
@@ -101,4 +101,4 @@ const SignIn: React.FC = () => {
   );
 };
 
-export default SignIn;
+export default signIn;

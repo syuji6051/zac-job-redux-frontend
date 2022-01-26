@@ -7,7 +7,8 @@ import { Button, Label } from 'semantic-ui-react';
 import { IAppState } from '../../configureStore';
 import { AuthActions, AUTH_STATUS } from '../../modules/Auth';
 import errorMessageList from '../../context/errors/login';
-import { passwordChange } from '../../helper/Auth';
+import * as helper from '../../helper/Auth';
+import { StatusCodeError } from '../../schema/error';
 import classes from '../../styles/components/login.module.css';
 import Form from '../ui/Form';
 import TextField from '../ui/TextField';
@@ -26,7 +27,7 @@ const validation = Yup.object().shape({
     .min(6, '6文字以上で入力してください'),
 });
 
-const PasswordChange: React.FC = () => {
+const passwordChange: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const user = useSelector((state: IAppState) => state.authState.user);
   const dispatch = useDispatch();
@@ -44,13 +45,16 @@ const PasswordChange: React.FC = () => {
         setErrorMessage('入力したパスワードが一致しません。再度入力してください。');
         return;
       }
-      const status = await passwordChange(user, newPassword);
+      const status = await helper.passwordChange(user, newPassword);
       if (status === AUTH_STATUS.SIGN_IN) {
         dispatch(AuthActions.signedIn());
       }
     } catch (err) {
-      const message = errorMessageList[err.code];
-      setErrorMessage(message || 'ログインに失敗しました。管理者にお問い合わせください');
+      if (err) {
+        const { code } = err as StatusCodeError;
+        const message = errorMessageList[code];
+        setErrorMessage(message || 'ログインに失敗しました。管理者にお問い合わせください');
+      }
     }
   };
 
@@ -91,4 +95,4 @@ const PasswordChange: React.FC = () => {
   );
 };
 
-export default PasswordChange;
+export default passwordChange;

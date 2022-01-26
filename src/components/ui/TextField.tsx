@@ -8,7 +8,7 @@ interface Props extends InputProps {
   pointing?: boolean | 'above' | 'below' | 'left' | 'right';
 }
 
-const TextField: React.FC<Props> = ({ name, pointing, ...props }: Props) => {
+const textField: React.FC<Props> = ({ name, pointing, ...props }: Props) => {
   const [, meta, helper] = useField(name);
   return (
     <>
@@ -28,4 +28,4 @@ const TextField: React.FC<Props> = ({ name, pointing, ...props }: Props) => {
   );
 };
 
-export default TextField;
+export default textField;

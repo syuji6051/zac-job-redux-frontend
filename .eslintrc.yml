@@ -4,18 +4,17 @@ env:
 extends:
   - airbnb
   - 'eslint:recommended'
+  - 'plugin:react/recommended'
   - 'plugin:@typescript-eslint/eslint-recommended'
   - 'plugin:@typescript-eslint/recommended'
   - 'plugin:react/recommended'
   - 'plugin:prettier/recommended'
-  - 'prettier/@typescript-eslint'
-  - 'prettier/react'
-
+  - 'prettier'
 parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaFeatures:
     jsx: true
-  ecmaVersion: 2020
+  ecmaVersion: 13
   sourceType: module
 plugins:
   - react
@@ -28,22 +27,22 @@ rules:
     - '@expo/vector-icons'
     - expo-constants
   import/extensions:
-  - error
-  - extensions:
-    - ".ts"
-    - ".jsx"
-    - ".tsx"
+  - "error"
+  - "never"
+  - json: "always"
   react/jsx-filename-extension:
   - error
   - extensions:
     - ".ts"
     - ".jsx"
     - ".tsx"
+    - ".json"
   no-use-before-define:
   - off
   react/display-name:
   - off
   react/require-default-props: "off"
+  "@typescript-eslint/no-explicit-any": "off"
 settings:
   import/resolver:
     node:

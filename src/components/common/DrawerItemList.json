@@ -1,0 +1,12 @@
+[
+  {
+    "menuId": "home",
+    "menuName": "ホーム",
+    "icon": "home"
+  },
+  {
+    "menuId": "settings",
+    "menuName": "設定",
+    "icon": "cog"
+  }
+]

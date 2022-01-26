@@ -34,11 +34,11 @@ const minuteRecord = [...Array(4).keys()]
     value: key,
   }));
 
-const ZacWork: React.FC = () => {
+const zacWork: React.FC = () => {
   const [date, setDate] = useState(dayjs().format('YYYY-MM-DD'));
   const formik = useFormik({
     initialValues: { workDate: '', workStartHour: 0 },
-    onSubmit: (val) => onSubmitZacWork(val),
+    onSubmit: () => onSubmitZacWork(),
     validationSchema: scheme,
     validateOnMount: true,
   });
@@ -49,7 +49,7 @@ const ZacWork: React.FC = () => {
   //   }
   // };
 
-  const onSubmitZacWork = async (val: Schema) => {
+  const onSubmitZacWork = async () => {
     await API.post('cognito-user', '/user/zac/work', {
       body: {
         workDate: '2021-04-23',
@@ -141,4 +141,4 @@ const ZacWork: React.FC = () => {
   );
 };
 
-export default ZacWork;
+export default zacWork;

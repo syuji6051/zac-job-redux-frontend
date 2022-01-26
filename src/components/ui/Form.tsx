@@ -9,7 +9,7 @@ interface Props {
   children: ReactNode;
 }
 
-const CustomForm: React.FC<Props> = (props: Props) => {
+const customForm: React.FC<Props> = (props: Props) => {
   const { children, formik, className } = props;
 
   return (
@@ -21,4 +21,4 @@ const CustomForm: React.FC<Props> = (props: Props) => {
   );
 };
 
-export default CustomForm;
+export default customForm;

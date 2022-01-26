@@ -7,12 +7,8 @@ import Routers from './routers';
 
 amplify.configure(config);
 
-const App: React.FC = () => {
-  return (
-    <>
-      <Routers />
-    </>
-  );
+const app: React.FC = () => {
+  return <Routers />;
 };
 
-export default App;
+export default app;

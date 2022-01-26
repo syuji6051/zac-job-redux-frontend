@@ -1,13 +1,19 @@
 import React from 'react';
-import { FormikContextType } from 'formik';
+import { useFormik } from 'formik';
 import { Button } from 'semantic-ui-react';
+import { ObjectSchema } from 'yup';
 import Form from '../ui/Form';
 
 import classes from '../../styles/components/extends-login.module.css';
 import TextField from '../ui/TextField';
 
+export interface Scheme {
+  tenantId: string;
+  userId: string;
+  password: string;
+}
+
 interface Props {
-  formik: FormikContextType<any>;
   title: string;
   tenant: {
     fieldName: string;
@@ -24,10 +30,20 @@ interface Props {
   registerButton: {
     name: string;
   };
+  validationSchema: ObjectSchema<any>;
+  onSubmit: (val: Scheme) => Promise<void>;
 }
 
-const RegisterLoginPassword: React.FC<Props> = (props: Props) => {
-  const { formik, title, tenant, login, password, registerButton } = props;
+const registerLoginPassword: React.FC<Props> = (props: Props) => {
+  const { title, tenant, login, password, registerButton, validationSchema, onSubmit } = props;
+
+  const formik = useFormik({
+    initialValues: { tenantId: '', userId: '', password: '' },
+    onSubmit,
+    validationSchema,
+    validateOnMount: true,
+  });
+
   return (
     <Form formik={formik} className={classes.form}>
       <h3>{title}</h3>
@@ -67,4 +83,4 @@ const RegisterLoginPassword: React.FC<Props> = (props: Props) => {
   );
 };
 
-export default RegisterLoginPassword;
+export default registerLoginPassword;

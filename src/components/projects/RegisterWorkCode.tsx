@@ -18,9 +18,9 @@ const validation = Yup.object().shape({
   workCode: Yup.string().min(6, '6文字以上で入力してください'),
 });
 
-const RegisterWorkCode: React.FC = () => {
+const registerWorkCode: React.FC = () => {
   const [stateWorkCodeList, setStateWorkCodeList] = useState([] as ZacWorkCodeResponse);
-  const [stateYearMonth, setStateYearMonth] = useState(dayjs());
+  const [stateYearMonth, setStateYearMonth] = useState(dayjs().toDate());
   const [stateErrorMessage, setErrorMessage] = useState('');
 
   const formik = useFormik({
@@ -32,7 +32,7 @@ const RegisterWorkCode: React.FC = () => {
 
   useEffect(() => {
     (async () => {
-      const res = await getWorkCodeList(stateYearMonth.format('YYYYMM'));
+      const res = await getWorkCodeList(dayjs(stateYearMonth).format('YYYYMM'));
       setStateWorkCodeList(res);
     })();
   }, []);
@@ -45,8 +45,13 @@ const RegisterWorkCode: React.FC = () => {
   const onClickYearMonth = async (event: React.MouseEvent, inc: number) => {
     event.preventDefault();
     formik.setFieldValue('workCode', '');
-    setStateYearMonth(stateYearMonth.add(inc, 'M'));
-    const res = await getWorkCodeList(stateYearMonth.format('YYYYMM'));
+    // console.log(stateYearMonth.format('YYYY/MM/DD'));
+    const addYearMonth = dayjs(stateYearMonth).add(inc, 'month');
+    setStateYearMonth(addYearMonth.toDate());
+    // console.log(stateYearMonth.format('YYYY/MM/DD'));
+    // console.log(stateYearMonth.format('YYYYMM'));
+    // setStateYearMonth(stateYearMonth.add(inc, 'month'));
+    const res = await getWorkCodeList(addYearMonth.format('YYYYMM'));
     setStateWorkCodeList(res);
   };
 
@@ -70,7 +75,7 @@ const RegisterWorkCode: React.FC = () => {
 
   const saveWorkCodeList = async (workCodeList: ZacWorkCodeResponse) => {
     try {
-      await setWorkCodeList(stateYearMonth.format('YYYYMM'), workCodeList);
+      await setWorkCodeList(dayjs(stateYearMonth).format('YYYYMM'), workCodeList);
       setStateWorkCodeList(workCodeList);
       setErrorMessage('');
     } catch (err) {
@@ -92,7 +97,7 @@ const RegisterWorkCode: React.FC = () => {
           <Button size="mini" onClick={(e) => onClickYearMonth(e, -1)}>
             <Icon name="angle left" size="large" />
           </Button>
-          <p className={classes.yearMonthLabel}>{stateYearMonth.format('YYYY年MM月')}</p>
+          <p className={classes.yearMonthLabel}>{dayjs(stateYearMonth).format('YYYY年MM月')}</p>
           <Button size="mini" onClick={(e) => onClickYearMonth(e, 1)}>
             <Icon name="angle right" size="large" />
           </Button>
@@ -146,4 +151,4 @@ const RegisterWorkCode: React.FC = () => {
   );
 };
 
-export default RegisterWorkCode;
+export default registerWorkCode;

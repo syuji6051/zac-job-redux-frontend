@@ -18,7 +18,7 @@ const rootReducer = (history: History) =>
 
 export const history = createBrowserHistory();
 
-export default function configureStore(): Store<any> {
+export default function configureStore(): Store {
   const store = reduxCreateStore(rootReducer(history), applyMiddleware(routerMiddleware(history)));
   return store;
 }

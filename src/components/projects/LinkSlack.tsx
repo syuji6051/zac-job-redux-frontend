@@ -3,7 +3,7 @@ import { Button } from 'semantic-ui-react';
 import queryString from 'query-string';
 import classes from '../../styles/components/extends-login.module.css';
 
-const LinkSlack: React.FC = () => {
+const linkSlack: React.FC = () => {
   const onClickLinkSlack = () => {
     const { REACT_APP_SLACK_CLIENT_ID, REACT_APP_SLACK_REDIRECT_URL } = process.env;
     const query = {
@@ -29,4 +29,4 @@ const LinkSlack: React.FC = () => {
   );
 };
 
-export default LinkSlack;
+export default linkSlack;

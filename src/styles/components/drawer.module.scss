@@ -1,0 +1,69 @@
+div.container {
+  width: 200px;
+  height: 100vh;
+  background-color: gray;
+  flex-shrink: 0;
+  overflow: auto;
+}
+
+div.container.drawerClose {
+  width: inherit;
+}
+
+div.navDrawerMenu {
+  padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: flex-end;
+}
+
+button.navItem {
+  width: 100%;
+  height: 56px;
+  padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  color: white;
+  background-color: gray;
+  cursor: pointer;
+  border: none;
+}
+
+button.navItem.selected {
+  background-color: rgb(255, 255, 255);
+  color: gray;
+}
+
+button.navItem:hover {
+  background-color: rgb(255, 255, 255);
+  color: gray;
+}
+
+i.navItemIcon {
+  width: 60px;
+  margin: 5 0px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+p.navItemLabel {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-weight: bold
+}
+
+button.barsIconButton {
+  background-color: grey;
+  width: 60px;
+  height: 36px;
+  color: white;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  cursor: pointer;
+  border: none;
+}
