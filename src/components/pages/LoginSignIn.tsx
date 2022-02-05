@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { Button, Label } from 'semantic-ui-react';
 
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import Form from '../ui/Form';
 import TextField from '../ui/TextField';
 import * as helper from '../../helper/Auth';
@@ -31,7 +31,7 @@ const scheme = Yup.object().shape({
 const signIn: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: { mailAddress: '', password: '' },
@@ -50,7 +50,7 @@ const signIn: React.FC = () => {
         case AUTH_STATUS.NEW_PASSWORD_REQUIRED:
           dispatch(AuthActions.setUser(user));
           dispatch(AuthActions.newPasswordChange());
-          history.push('password/change');
+          navigate('password/change');
           break;
         default:
           throw new Error('Not change auth status');

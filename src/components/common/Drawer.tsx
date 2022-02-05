@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-import menuList from './DrawerItemList.json';
+import menuList from '../../constants/DrawerItemList.json';
 import classes from '../../styles/components/drawer.module.scss';
 
 const drawer: React.FC = () => {
-  const [mouseOverCss, setMouseOverCss] = useState('bars');
-  const [isDrawerOpen, setDrawerOpen] = useState(true);
-  const [selectedMenu, setSelectedMenu] = useState(0);
+  const [mouseOverCss, setMouseOverCss] = React.useState('bars');
+  const [isDrawerOpen, setDrawerOpen] = React.useState(true);
+  const [selectedMenu, setSelectedMenu] = React.useState(0);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  React.useEffect(() => {
+    (() => {
+      const index = menuList.findIndex((menu) => menu.path === location.pathname);
+      if (index !== -1) changeMenu(index);
+    })();
+  }, []);
 
   const changeMenu = (index: number) => {
     setSelectedMenu(index);
+    navigate(menuList[index].path);
   };
   return (
     <div className={`${classes.container} ${isDrawerOpen || classes.drawerClose}`}>

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, Switch } from 'react-router';
+import { Route, Routes } from 'react-router-dom';
 import { Hub } from 'aws-amplify';
 
-import { IAppState } from '../../configureStore';
+import { IAppState } from '../../store';
 import { AuthActions, AUTH_STATUS } from '../../modules/Auth';
 import Drawer from '../common/Drawer';
 import Settings from '../pages/Settings';
@@ -46,21 +46,21 @@ const routers: React.FC = () => {
           <Drawer />
           <div className={classes.mainContent}>
             <div className={classes.mainChildContent}>
-              <Switch>
-                <Route exact path="/" component={Settings} />
-                <Route path="/zac" component={ZacWork} />
-                <Route path="/auth/slack" component={SlackAuthCallback} />
-              </Switch>
+              <Routes>
+                <Route path="/" element={<Settings />} />
+                <Route path="/zac" element={<ZacWork />} />
+                <Route path="/auth/slack" element={<SlackAuthCallback />} />
+              </Routes>
             </div>
           </div>
         </div>
       ) : (
         authState !== AUTH_STATUS.LOADING && (
-          <Switch>
-            <Route exact path="/" component={SignIn} />
-            <Route path="/login" component={SignIn} />
-            <Route path="/password/change" component={PasswordChange} />
-          </Switch>
+          <Routes>
+            <Route path="/" element={<SignIn />} />
+            <Route path="/login" element={<SignIn />} />
+            <Route path="/password/change" element={<PasswordChange />} />
+          </Routes>
         )
       )}
     </div>

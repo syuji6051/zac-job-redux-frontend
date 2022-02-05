@@ -8,12 +8,8 @@ import { Button, Dropdown, Input, Table } from 'semantic-ui-react';
 import { DateInput } from 'semantic-ui-calendar-react';
 
 import Form from '../ui/Form';
-import classes from '../../styles/components/zac-work.module.css';
-
-interface Schema {
-  workDate: string;
-  workStartHour: number;
-}
+import ObcZacIntegration from '../parts/obc-zac-integration';
+import classes from '../../styles/components/zac-work.module.scss';
 
 const scheme = Yup.object().shape({
   workDate: Yup.string().required('登録日を入力してください'),
@@ -73,6 +69,7 @@ const zacWork: React.FC = () => {
 
   return (
     <div>
+      <ObcZacIntegration />
       <Form formik={formik} className={classes.form}>
         <div className={classes.formRow}>
           <label className={classes.label}>勤務日</label>

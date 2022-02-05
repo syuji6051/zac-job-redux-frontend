@@ -1,0 +1,20 @@
+[
+  {
+    "menuId": "home",
+    "menuName": "ホーム",
+    "icon": "home",
+    "path": "/"
+  },
+  {
+    "menuId": "zac",
+    "menuName": "ZAC",
+    "icon": "cog",
+    "path": "/zac"
+  },
+  {
+    "menuId": "settings",
+    "menuName": "設定",
+    "icon": "cog",
+    "path": "/settings"
+  }
+]

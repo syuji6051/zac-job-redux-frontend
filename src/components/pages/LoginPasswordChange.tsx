@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { Button, Label } from 'semantic-ui-react';
 
-import { IAppState } from '../../configureStore';
+import { IAppState } from '../../store';
 import { AuthActions, AUTH_STATUS } from '../../modules/Auth';
 import errorMessageList from '../../context/errors/login';
 import * as helper from '../../helper/Auth';

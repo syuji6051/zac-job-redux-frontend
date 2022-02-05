@@ -1,3 +1,19 @@
+@import 'variable.module.scss';
+
+.categoryContainer {
+  padding: $middle-space;
+  border: solid 1px darkgray;
+  border-radius: 0.5rem;
+}
+
+.manuelInput {
+  display: flex;
+}
+
+.manuelInput button {
+  margin-left: 1em !important;
+}
+
 .form {
   padding: 1rem;
   border: solid 1px darkgray;

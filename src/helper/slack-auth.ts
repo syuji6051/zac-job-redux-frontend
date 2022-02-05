@@ -8,8 +8,6 @@ export const setSlackAuth = async (code: string): Promise<void> =>
       code,
     },
   }).catch((err: AxiosError) => {
-    console.log(err.response?.data);
-
     if (
       err.response?.status === 500 &&
       err.response?.data.message === 'An API error occurred: code_already_used'
