@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 import { Button } from 'semantic-ui-react';
 import { setSlackAuth } from '../../helper/slack-auth';
