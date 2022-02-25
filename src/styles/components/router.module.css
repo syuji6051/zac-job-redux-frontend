@@ -1,12 +1,15 @@
 .container {
   display: flex;
+  height: 100%;
 }
 
 .mainContent {
   overflow: auto;
+  width: 100%;
 }
 
 .mainChildContent {
+  width: 100%;
   padding: 10px;
   display: inline-block;
 }

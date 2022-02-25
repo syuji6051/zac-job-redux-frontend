@@ -8,7 +8,7 @@ import { Button, Dropdown, Input, Table } from 'semantic-ui-react';
 import { DateInput } from 'semantic-ui-calendar-react';
 
 import Form from '../ui/Form';
-import ObcZacIntegration from '../parts/obc-zac-integration';
+import ObcZacIntegration from '../parts/ObcZacIntegration';
 import classes from '../../styles/components/zac-work.module.scss';
 
 const scheme = Yup.object().shape({

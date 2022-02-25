@@ -8,7 +8,7 @@ import { IAppState } from '../../store';
 import { AuthActions, AUTH_STATUS } from '../../modules/Auth';
 import errorMessageList from '../../context/errors/login';
 import * as helper from '../../helper/Auth';
-import { StatusCodeError } from '../../schema/error';
+import { StatusCodeError } from '../../entities/error';
 import classes from '../../styles/components/login.module.css';
 import Form from '../ui/Form';
 import TextField from '../ui/TextField';

@@ -1,6 +1,6 @@
 import { API } from 'aws-amplify';
 import { AxiosError } from 'axios';
-import { ZacWorkCodeResponse } from '../schema/work-code';
+import { ZacWorkCodeResponse } from '../entities/work-code';
 
 // eslint-disable-next-line import/prefer-default-export
 export const getWorkCodeList = (yearMonth: string): Promise<ZacWorkCodeResponse> =>

@@ -4,7 +4,7 @@ import { Button, List, Form, Checkbox, CheckboxProps, Icon, Label } from 'semant
 import * as Yup from 'yup';
 import dayjs from 'dayjs';
 import { getWorkCodeList, setWorkCodeList } from '../../helper/work-code';
-import { ZacWorkCodeResponse } from '../../schema/work-code';
+import { ZacWorkCodeResponse } from '../../entities/work-code';
 import UiForm from '../ui/Form';
 import TextField from '../ui/TextField';
 import loginClasses from '../../styles/components/extends-login.module.css';

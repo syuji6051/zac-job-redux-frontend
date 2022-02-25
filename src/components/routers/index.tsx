@@ -7,7 +7,7 @@ import { IAppState } from '../../store';
 import { AuthActions, AUTH_STATUS } from '../../modules/Auth';
 import Drawer from '../common/Drawer';
 import Settings from '../pages/Settings';
-import PasswordChange from '../pages/LoginPasswordChange';
+import PasswordChange from '../parts/LoginPasswordChange';
 import SignIn from '../pages/LoginSignIn';
 import ZacWork from '../pages/ZacWork';
 
@@ -39,9 +39,9 @@ const routers: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className={classes.container}>
       {authState === AUTH_STATUS.SIGN_IN ? (
-        <div className={classes.container}>
+        <>
           {/* <Header /> */}
           <Drawer />
           <div className={classes.mainContent}>
@@ -53,7 +53,7 @@ const routers: React.FC = () => {
               </Routes>
             </div>
           </div>
-        </div>
+        </>
       ) : (
         authState !== AUTH_STATUS.LOADING && (
           <Routes>

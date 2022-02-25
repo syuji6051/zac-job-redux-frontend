@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import { Button } from 'semantic-ui-react';
+import { Button, FormInputProps } from 'semantic-ui-react';
 import { ObjectSchema } from 'yup';
 import Form from '../ui/Form';
 
@@ -8,20 +8,20 @@ import classes from '../../styles/components/extends-login.module.css';
 import TextField from '../ui/TextField';
 
 export interface Scheme {
-  tenantId: string;
-  userId: string;
-  password: string;
+  [fieldName: string]: string;
 }
 
-interface Props {
+interface Props extends FormInputProps {
   title: string;
   tenant: {
     fieldName: string;
     placeHolderName: string;
+    initialValues: string;
   };
   login: {
     fieldName: string;
     placeHolderName: string;
+    initialValues: string;
   };
   password: {
     fieldName: string;
@@ -38,7 +38,11 @@ const registerLoginPassword: React.FC<Props> = (props: Props) => {
   const { title, tenant, login, password, registerButton, validationSchema, onSubmit } = props;
 
   const formik = useFormik({
-    initialValues: { tenantId: '', userId: '', password: '' },
+    initialValues: {
+      [login.fieldName]: login.initialValues,
+      [password.fieldName]: '',
+      [tenant.fieldName]: tenant.initialValues,
+    },
     onSubmit,
     validationSchema,
     validateOnMount: true,
