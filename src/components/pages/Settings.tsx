@@ -9,9 +9,17 @@ import LinkSlack from '../projects/LinkSlack';
 import OtherUserInfo from '../parts/OtherUserInfo';
 
 import classes from '../../styles/components/settings.module.css';
+import { getUserInfo } from '../../helper/users';
+import { UserInfo } from '../../entities/users';
 
-const home: React.FC = () => {
+const settings: React.FC = () => {
   const dispatch = useDispatch();
+  const [stateUserInfo, setUserInfo] = React.useState<Partial<UserInfo>>({});
+  React.useEffect(() => {
+    (async () => {
+      setUserInfo(await getUserInfo());
+    })();
+  }, []);
 
   const handleSignOut = async () => {
     await signOut();
@@ -20,9 +28,9 @@ const home: React.FC = () => {
 
   return (
     <>
-      <OtherUserInfo />
+      <OtherUserInfo userInfo={stateUserInfo} />
       <div className={classes.registerLoginPassword}>
-        <LinkSlack />
+        <LinkSlack slackUserName={stateUserInfo.slackUserName} />
       </div>
       <div className={classes.registerWorkCode}>
         <RegisterWorkCode />
@@ -32,4 +40,4 @@ const home: React.FC = () => {
   );
 };
 
-export default home;
+export default settings;

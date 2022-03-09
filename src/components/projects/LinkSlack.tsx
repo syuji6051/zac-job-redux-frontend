@@ -3,7 +3,11 @@ import { Button } from 'semantic-ui-react';
 import queryString from 'query-string';
 import classes from '../../styles/components/extends-login.module.css';
 
-const linkSlack: React.FC = () => {
+interface Props {
+  slackUserName: string | undefined;
+}
+
+const linkSlack: React.FC<Props> = ({ slackUserName }: Props) => {
   const onClickLinkSlack = () => {
     const { REACT_APP_SLACK_CLIENT_ID, REACT_APP_SLACK_REDIRECT_URL } = process.env;
     const query = {
@@ -23,7 +27,7 @@ const linkSlack: React.FC = () => {
         className={classes.registerButton}
         onClick={() => onClickLinkSlack()}
       >
-        連携する
+        {slackUserName ? '連携済み' : '連携する'}
       </Button>
     </div>
   );

@@ -1,32 +1,28 @@
 import React from 'react';
 
 import { UserInfo } from '../../entities/users';
-import { getUserInfo } from '../../helper/users';
 import OtherUserInfoZac from './OtherUserInfoZac';
 import OtherUserInfoObc from './OtherUserInfoObc';
 
 import classes from '../../styles/components/settings.module.css';
 
-const otherUserInfo: React.FC = () => {
-  const [stateUserInfo, setUserInfo] = React.useState<Partial<UserInfo>>({});
-  React.useEffect(() => {
-    (async () => {
-      setUserInfo(await getUserInfo());
-    })();
-  }, []);
+interface Props {
+  userInfo: Partial<UserInfo>;
+}
 
-  return Object.keys(stateUserInfo).length ? (
+const otherUserInfo: React.FC<Props> = ({ userInfo }: Props) => {
+  return Object.keys(userInfo).length ? (
     <div>
       <OtherUserInfoZac
         initialValues={{
-          tenantId: stateUserInfo.zacTenantId ?? '',
-          userId: stateUserInfo.zacUserId ?? '',
+          tenantId: userInfo.zacTenantId ?? '',
+          userId: userInfo.zacUserId ?? '',
         }}
       />
       <OtherUserInfoObc
         initialValues={{
-          tenantId: stateUserInfo.obcTenantId ?? '',
-          userId: stateUserInfo.obcUserId ?? '',
+          tenantId: userInfo.obcTenantId ?? '',
+          userId: userInfo.obcUserId ?? '',
         }}
       />
     </div>

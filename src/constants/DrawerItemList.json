@@ -6,6 +6,12 @@
     "path": "/"
   },
   {
+    "menuId": "users",
+    "menuName": "ユーザ管理",
+    "icon": "cog",
+    "path": "/users"
+  },
+  {
     "menuId": "zac",
     "menuName": "ZAC",
     "icon": "cog",

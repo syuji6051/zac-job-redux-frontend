@@ -10,6 +10,7 @@ import Settings from '../pages/Settings';
 import PasswordChange from '../parts/LoginPasswordChange';
 import SignIn from '../pages/LoginSignIn';
 import ZacWork from '../pages/ZacWork';
+import Users from '../pages/Users';
 
 import classes from '../../styles/components/router.module.css';
 import SlackAuthCallback from '../pages/SlackAuthCallback';
@@ -49,6 +50,7 @@ const routers: React.FC = () => {
               <Routes>
                 <Route path="/" element={<Settings />} />
                 <Route path="/zac" element={<ZacWork />} />
+                <Route path="/users" element={<Users />} />
                 <Route path="/auth/slack" element={<SlackAuthCallback />} />
               </Routes>
             </div>
